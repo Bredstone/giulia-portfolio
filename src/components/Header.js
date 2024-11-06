@@ -1,5 +1,7 @@
 import { Container, Nav, Navbar } from "react-bootstrap";
 
+import "../styles/header.scss";
+
 export default function Header() {
     return (
         <Navbar expand="lg" sticky="top" className="py-3 w-auto m-auto header">

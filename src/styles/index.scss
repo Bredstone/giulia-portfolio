@@ -19,6 +19,13 @@ $border-radius-xxl: 1.5rem !important;
 * {
     font-family: 'DM Sans';
     letter-spacing: -0.04rem;
+    scroll-behavior: smooth;
+    scroll-padding-top: 10rem;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    color: #210124;
+    margin: 0;
 }
 
 b {
@@ -28,6 +35,33 @@ b {
 a {
     text-decoration-thickness: 2px;
     text-underline-offset: 4px;
+}
+
+mark {
+    -webkit-animation: .7s highlight .7s 1 ease forwards;
+            animation: .7s highlight .7s 1 ease forwards;
+    background-color: transparent !important;
+    padding-top: .1rem;
+    padding-bottom: .1rem;
+    background-size: 200% 100%; 
+    background-image: linear-gradient(to right, $primary 50%, white 50%),
+                      linear-gradient(to right, transparent 50%, $primary 50%);
+    transition: background-position 1s linear; 
+    -webkit-background-clip: text, border-box;
+    background-clip: text, border-box; 
+    color: transparent; 
+}
+  
+@-webkit-keyframes highlight {
+    to {
+        background-position: -100% 0;
+    }
+}
+
+@keyframes highlight {
+    to {
+        background-position: -100% 0;
+    }
 }
 
 .display-font {
@@ -56,68 +90,4 @@ h3 {
 
 .annotations {
     letter-spacing: -0.05rem;
-}
-
-.header .navbar-nav {
-    font-size: 1.5rem !important;
-
-    a {
-        padding: 8px 3.5rem !important;
-    }
-
-    a:is(:first-child) {
-        padding-left: 8px !important;
-    }
-
-    a:is(:last-child) {
-        padding-right: 8px !important;
-    }
-}
-
-.home-content {
-    margin-top: 4rem;
-}
-
-.home-header {
-    position: absolute;
-    top: -10%;
-    left: 10px;
-}
-
-.home-panel {
-    padding-top: 5rem !important;
-}
-
-.profile-picture {
-    aspect-ratio: 1/1;
-    background-image: url('../resources/img/profile.jpeg');
-    background-size: 135%;
-    background-position: 75% 50%;
-    position: relative;
-
-    .circular-text {
-        position: absolute;
-        top: -10%;
-        left: -10%;
-        width: 10rem;
-        animation: rotate 25s linear infinite;
-        transform-origin: 50% 50%;
-        filter: invert(1) grayscale(1) contrast(9);
-        mix-blend-mode: difference;
-    }
-
-    @keyframes rotate {
-        to {
-            transform: rotate(360deg);
-        }
-    }
-      
-    .textcircle {
-        transition: transform 1s cubic-bezier(0.65, 0, 0.35, 1);
-        transform-origin: 50% 50%;
-    }
-      
-    svg:hover .textcircle {
-        transform: rotate(90deg);
-    }
 }
