@@ -1,20 +1,16 @@
 // DM Sans
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Fira+Code:wght@300..700&display=swap');
-
 // IBM Plex Serif
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Fira+Code:wght@300..700&family=IBM+Plex+Serif:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
 
 // Bootstrap variables overrides
 $primary: #210124;
+$body-color: #210124;
 $secondary: #F5F5F5;
 $border-radius-xxl: 1.5rem !important;
 
 // Import Bootstrap and its default variables
 @import '~bootstrap/scss/bootstrap.scss';
-
-.content {
-    height: 100vh !important;
-}
 
 * {
     font-family: 'DM Sans';
@@ -24,51 +20,7 @@ $border-radius-xxl: 1.5rem !important;
 }
 
 h1, h2, h3, h4, h5, h6, p {
-    color: #210124;
     margin: 0;
-}
-
-b {
-    font-weight: 600 !important;
-}
-
-a {
-    text-decoration-thickness: 2px;
-    text-underline-offset: 4px;
-}
-
-mark {
-    -webkit-animation: .7s highlight .7s 1 ease forwards;
-            animation: .7s highlight .7s 1 ease forwards;
-    background-color: transparent !important;
-    padding-top: .1rem;
-    padding-bottom: .1rem;
-    background-size: 200% 100%; 
-    background-image: linear-gradient(to right, $primary 50%, white 50%),
-                      linear-gradient(to right, transparent 50%, $primary 50%);
-    transition: background-position 1s linear; 
-    -webkit-background-clip: text, border-box;
-    background-clip: text, border-box; 
-    color: transparent; 
-}
-  
-@-webkit-keyframes highlight {
-    to {
-        background-position: -100% 0;
-    }
-}
-
-@keyframes highlight {
-    to {
-        background-position: -100% 0;
-    }
-}
-
-.display-font {
-    font-family: 'IBM Plex Serif';
-    letter-spacing: -0.2rem;
-    font-style: italic;
-    font-weight: 400;
 }
 
 h1 {
@@ -83,11 +35,90 @@ h3 {
     font-size: 2.5rem;
 }
 
+b {
+    font-weight: 600 !important;
+}
+
+a {
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
+}
+
+mark {
+    -webkit-animation: .7s highlightForward .7s 1 ease forwards;
+            animation: .7s highlightForward .7s 1 ease forwards;
+    background-color: transparent !important;
+    padding-top: .1rem;
+    padding-bottom: .1rem;
+    background-size: 200% 100%; 
+    background-image: linear-gradient(to right, $primary 50%, white 50%),
+                      linear-gradient(to right, transparent 50%, $primary 50%);
+    transition: background-position 1s linear; 
+    -webkit-background-clip: text, border-box;
+    background-clip: text, border-box; 
+    color: transparent; 
+}
+
+@-webkit-keyframes highlightForward {
+    to {
+        background-position: -100% 0;
+    }
+}
+
+@keyframes highlightForward {
+    to {
+        background-position: -100% 0;
+    }
+}
+
+.highlightable {
+    background-image: linear-gradient(to right, $primary 50%, white 50%),
+                      linear-gradient(to right, transparent 50%, $primary 50%);
+    background-size: 200% 100%; 
+    background-position: 0 0;
+    background-color: transparent !important;
+    -webkit-background-clip: text, border-box;
+    background-clip: text, border-box;
+
+    color: transparent;
+    text-decoration-color: $primary;
+    
+    padding: .1rem 0.1875em;
+    margin: -.1rem -0.1875em;
+    
+    transition: background-position .7s ease; 
+
+    &:hover {
+        background-position: -100% 0;
+    }
+}
+
+.display-font {
+    font-family: 'IBM Plex Serif';
+    letter-spacing: -0.2rem;
+    font-style: italic;
+    font-weight: 400;
+}
+
 .subtitle {
     font-size: 1.5rem;
     letter-spacing: -0.06rem;
 }
 
-.annotations {
-    letter-spacing: -0.05rem;
+.badge {
+    font-weight: 400 !important;
+    color: rgba(0, 0, 0, 0.44) !important;
+    padding: 0.45em 0.65em;
+}
+
+.svg-shadow-sm {
+    filter: drop-shadow(var(--bs-box-shadow-sm)) !important;
+}
+
+.square {
+    aspect-ratio: 1 / 1 !important;
+}
+
+.horizontal-rectangle {
+    aspect-ratio: 2 / 1 !important;
 }

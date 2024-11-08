@@ -7,7 +7,7 @@ export default function GreetingRow() {
     return (
         <Row className="gap-4" id="home">
             {/* greeting panel */}
-            <Col className="bg-secondary rounded-5 greeting-panel">
+            <Col lg={{ order: 0 }} xs={{ order: 1 }} className="bg-secondary rounded-5 greeting-panel">
                 <h1 className="greeting-header display-font d-flex align-items-center">hi, i'm giulia! <AppleEmoji className="ms-4" name="sparkles" /></h1>
 
                 <Stack gap={4}>
@@ -27,13 +27,13 @@ export default function GreetingRow() {
                     </Stack>
 
                     <div className="w-100 h-100 d-flex flex-row align-items-end justify-content-end">
-                        <h3><a href="#contact" className="display-font contact-link">let's chat!<span className="arrow"> →</span></a></h3>
+                        <h3><a href="#contact" className="display-font contact-link highlightable">let's chat!<span className="arrow"> →</span></a></h3>
                     </div>
                 </Stack>
             </Col>
 
             {/* profile picture */}
-            <Col xs={4} className="profile-picture rounded-5">
+            <Col lg={{ span: 4, order: 1 }} xs={{ order: 0 }} className="profile-picture rounded-5">
                 <CircularText />
             </Col>
         </Row>

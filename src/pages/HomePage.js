@@ -1,10 +1,12 @@
-import { Container, Stack, Row } from "react-bootstrap";
+import { Container, Stack } from "react-bootstrap";
 
-import "../styles/home.scss";
+import "../styles/home/home.scss";
 
 import GreetingRow from "../components/HomePage/GreetingRow";
 import AboutRow from "../components/HomePage/AboutRow";
 import PortfolioRow from "../components/HomePage/PortfolioRow";
+import ExperienceRow from "../components/HomePage/ExperienceRow";
+import TestimonialsRow from "../components/HomePage/TestimonialsRow";
 
 export default function HomePage() {
     return (
@@ -13,10 +15,8 @@ export default function HomePage() {
                 <GreetingRow />
                 <AboutRow />
                 <PortfolioRow />
-
-                <Row className="content">
-                    Conteúdo
-                </Row>
+                <ExperienceRow />
+                <TestimonialsRow />
             </Stack>
         </Container>
     );

@@ -1,15 +1,37 @@
-.navbar-nav {
-    font-size: 1.5rem !important;
+@media only screen and (min-width: 1200px) {
+    .navbar-nav {
+        font-size: 1.5rem !important;
 
-    a {
-        padding: 8px 3.5rem !important;
+        a {
+            padding: 8px 3.5rem !important;
+        }
+
+        a:is(:first-child) {
+            padding-left: 8px !important;
+        }
+
+        a:is(:last-child) {
+            padding-right: 8px !important;
+        }
     }
 
-    a:is(:first-child) {
-        padding-left: 8px !important;
-    }
+    @supports (animation-timeline: scroll()) {
+        .header {
+            animation: scroll-shadow linear both;
+            animation-timeline: scroll();
+            animation-range: 0ex 5ex;
 
-    a:is(:last-child) {
-        padding-right: 8px !important;
+            background-color: var(--bs-body-bg);
+        }
+
+        @keyframes scroll-shadow {
+            from {
+                box-shadow: none;
+            }
+
+            to {
+                box-shadow: var(--bs-box-shadow-sm);
+            }
+        }
     }
 }
