@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { Col, Collapse, Badge } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
-export default function PortfolioThumbnail({ xs, square, rectangle, backgroundImage, title, subtitle, year, badges }) {
+export default function PortfolioThumbnail({ xs, square, rectangle, backgroundImage, title, subtitle, year, badges, url }) {
     const [open, setOpen] = useState(false);
 
     return (
@@ -10,7 +11,7 @@ export default function PortfolioThumbnail({ xs, square, rectangle, backgroundIm
             className={`bg-secondary rounded-4 portfolio-thumbnail ${(square && 'square') || ''} ${(rectangle && 'horizontal-rectangle') || ''}`}
             onMouseEnter={() => { setOpen(true); }}
             onMouseLeave={() => { setOpen(false); }}>
-            <div className="w-100 h-100 d-flex flex-column px-2 py-3 justify-content-end z-1 position-relative text-white">
+            <Link to={url} className="w-100 h-100 d-flex flex-column px-2 py-3 justify-content-end z-1 position-relative text-white text-decoration-none">
                 <div className="w-100 d-flex flex-row justify-content-between align-items-end">
                     <span>
                         <b>{title}</b>
@@ -26,7 +27,7 @@ export default function PortfolioThumbnail({ xs, square, rectangle, backgroundIm
 
                     <p>{year}</p>
                 </div>
-            </div>
+            </Link>
         </Col>
     );
 }

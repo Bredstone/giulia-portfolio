@@ -23,7 +23,8 @@ export default function PortfolioRow() {
                     title="Ades - Digital Signature Platform"
                     subtitle="LabSEC"
                     year="2023"
-                    badges={["Design System", "Wireframes", "Prototypes", "Benchmarking", "Usability Tests"]} />
+                    badges={["Design System", "Wireframes", "Prototypes", "Benchmarking", "Usability Tests"]}
+                    url={'/labsec'} />
 
                 <Col>
                     <Row className="gap-4 mb-4">
@@ -33,7 +34,8 @@ export default function PortfolioRow() {
                             title="Information Architecture"
                             subtitle="Samsung"
                             year="2023"
-                            badges={["Prototyping", "UX Research", "Information Architecture", "Design QA"]} />
+                            badges={["Prototyping", "UX Research", "Information Architecture", "Design QA"]}
+                            url={'/samsung'} />
 
                         <PortfolioThumbnail 
                             square
@@ -41,7 +43,8 @@ export default function PortfolioRow() {
                             title="FINDI - Digital Entertainment App"
                             subtitle="Ambev"
                             year="2022"
-                            badges={["Personas", "User Journey", "Prototypes", "Benchmarking"]} />
+                            badges={["Personas", "User Journey", "Prototypes", "Benchmarking"]}
+                            url={'/ambev'} />
                     </Row>
 
                     <Row>
@@ -51,7 +54,8 @@ export default function PortfolioRow() {
                             title="Suite 4 Energy"
                             subtitle="Norus"
                             year="2024"
-                            badges={["Design System", "Enterprise UX", "B2B", "Prototypes", "Product Design"]} />
+                            badges={["Design System", "Enterprise UX", "B2B", "Prototypes", "Product Design"]}
+                            url={'/norus'} />
                     </Row>
                 </Col>
             </Row>

@@ -35,3 +35,34 @@
         }
     }
 }
+
+.nav-link, .navbar-text {
+    display: inline-block !important;
+}
+
+.navbar-nav {
+    transition: margin .7s ease, width .7s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: calc(50% - (1098px / 2));
+    margin-right: calc(50% - (1098px / 2));
+    text-wrap: nowrap;
+    white-space: nowrap;
+
+    a {
+        transition: padding .7s ease;
+    }
+
+    &.back-button {
+        margin-left: 5rem;
+
+        a {
+            padding: 8px !important;
+        }
+    }
+}
+
+.back-link::before {
+    content: '< back to ';
+}
