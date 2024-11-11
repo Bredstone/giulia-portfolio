@@ -8,7 +8,7 @@ import Footer from "./components/Footer";
 
 function App() {
     return (
-        <Container fluid className='p-0 d-flex flex-column vw-100 vh-100 overflow-x-hidden'>
+        <Container fluid className='p-0 d-flex flex-column'>
             <Header />
             <Outlet />
             <Footer />

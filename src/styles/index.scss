@@ -12,6 +12,10 @@ $border-radius-xxl: 1.5rem !important;
 // Import Bootstrap and its default variables
 @import '~bootstrap/scss/bootstrap.scss';
 
+.content {
+    height: 150vh;
+}
+
 * {
     font-family: 'DM Sans';
     letter-spacing: -0.04rem;
@@ -121,4 +125,16 @@ mark {
 
 .horizontal-rectangle {
     aspect-ratio: 2 / 1 !important;
+}
+
+.horizontal-rectangle-dense {
+    aspect-ratio: 4 / 1 !important;
+}
+
+.vertical-rectangle {
+    aspect-ratio: 1 / 2 !important;
+}
+
+.vertical-dense {
+    aspect-ratio: 1 / 4 !important;
 }

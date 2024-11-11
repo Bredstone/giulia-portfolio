@@ -1,12 +1,20 @@
 import { useState } from "react";
 import { Nav, Navbar, Offcanvas, Collapse } from "react-bootstrap";
-import { useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 import "../styles/header.scss";
 
 export default function Header() {
     const location = useLocation();
+    const navigate = useNavigate();
+
     const [backButton, setBackButton] = useState(location.pathname !== '/');
+
+    const handleHomeButton = () => {
+        if (location.pathname !== '/') {
+            navigate('/');
+        } 
+    }
 
     return (
         <Navbar expand="xl" sticky="top" className='py-3'>
@@ -18,9 +26,10 @@ export default function Header() {
                         Offcanvas
                     </Offcanvas.Title>
                 </Offcanvas.Header>
+
                 <Offcanvas.Body>
-                    <Nav className={`bg-body px-4 py-1 header rounded-5 ${(location.pathname !== '/' && 'back-button') || ''}`}>
-                        <Nav.Link className="d-flex flex-row" href="#home">
+                    <Nav className={`bg-body scroll-shadow rounded-5 ${(location.pathname !== '/' && 'back-button') || ''}`}>
+                        <Nav.Link className="d-flex flex-row" href="#home" onClick={handleHomeButton}>
                             <Collapse in={backButton} dimension='width'>
                                 <p>&lt; back to&nbsp;</p>
                             </Collapse>
