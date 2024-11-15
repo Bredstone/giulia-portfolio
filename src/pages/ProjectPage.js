@@ -1,8 +1,56 @@
-import { Row, Col, Container, Stack, Button, Nav, Navbar } from "react-bootstrap";
+import { useState, useEffect } from "react";
+import { Row, Col, Container, Stack, Button } from "react-bootstrap";
+import { useInView } from "react-intersection-observer";
+import useDetectScroll from '@smakss/react-scroll-direction';
+import { ParallaxBanner, ParallaxBannerLayer } from "react-scroll-parallax";
 
-import "../styles/project/project.scss";
+import "styles/project/project.scss";
+
+// import researchVideo1 from "../resources/video/ades/research1.mp4";
+// import researchVideo2 from "../resources/video/ades/research2.mp4";
+
+import introductionImg from "../resources/img/ades/introduction.png";
+import overviewImg from "../resources/img/ades/overview.png";
+
+import wireframesImg2 from "../resources/img/ades/wireframes2.png";
+import wireframesImg3 from "../resources/img/ades/wireframes3.png";
+import wireframesImg4 from "../resources/img/ades/wireframes4.png";
+
+import testsImg1 from "../resources/img/ades/tests1.jpg";
+import testsImg2 from "../resources/img/ades/tests2.jpg";
+import testsImg3 from "../resources/img/ades/tests3.jpg";
+
+import IndexNavBar from "components/project/IndexNav";
 
 export default function ProjectPage() {
+    const { ref: overviewRef, inView: overviewInView } = useInView({ rootMargin: "-20% 0px -30% 0px" });
+    const { ref: challengesRef, inView: challengesInView } = useInView({ rootMargin: "10% 0px -30% 0px" });
+    const { ref: wireframesRef, inView: wireframesInView } = useInView({ rootMargin: "10% 0px -30% 0px" });
+    const { ref: testsRef, inView: testsInView } = useInView({ rootMargin: "10% 0px -30% 0px" });
+    const { ref: resultsRef, inView: resultsInView } = useInView({ rootMargin: "10% 0px -30% 0px" });
+    const { ref: contactRef, inView: contactInView } = useInView({ rootMargin: "10% 0px -30% 0px" });
+
+    const [activeSection, setActiveSection] = useState();
+    const { scrollDir } = useDetectScroll();
+
+    useEffect(() => {
+        if (scrollDir === "down") {
+            if (contactInView) setActiveSection(5);
+            else if (resultsInView) setActiveSection(4);
+            else if (testsInView) setActiveSection(3);
+            else if (wireframesInView) setActiveSection(2);
+            else if (challengesInView) setActiveSection(1);
+            else if (overviewInView) setActiveSection(0);
+        } else {
+            if (overviewInView) setActiveSection(0);
+            else if (challengesInView) setActiveSection(1);
+            else if (wireframesInView) setActiveSection(2);
+            else if (testsInView) setActiveSection(3);
+            else if (resultsInView) setActiveSection(4);
+            else if (contactInView) setActiveSection(5);
+        }
+    }, [contactInView, resultsInView, testsInView, wireframesInView, challengesInView, overviewInView, scrollDir]);
+
     // useEffect(() => {
     //     window.scrollTo(0, 0)
     // }, []);
@@ -10,87 +58,96 @@ export default function ProjectPage() {
     return (
         <>
             {/* right-aligned navbar */}
-            <Navbar className="navbar-right">
-                <Nav.Link href="#overview">
-                    <p>overview</p>
-                    <span className="bullet" />
-                </Nav.Link>
-
-                <Nav.Link href="#challenges">
-                    <p>challenges</p>
-                    <span className="bullet" />
-                </Nav.Link>
-
-                <Nav.Link href="#wireframes">
-                    <p>wireframes</p>
-                    <span className="bullet" />
-                </Nav.Link>
-
-                <Nav.Link href="#tests">
-                    <p>tests and validation</p>
-                    <span className="bullet" />
-                </Nav.Link>
-
-                <Nav.Link href="#results">
-                    <p>results</p>
-                    <span className="bullet" />
-                </Nav.Link>
-
-                <Nav.Link href="#contact">
-                    <p>contact</p>
-                    <span className="bullet" />
-                </Nav.Link>
-            </Navbar>
+            <IndexNavBar
+                sectionList={[
+                    { title: 'overview', href: '#overview' },
+                    { title: 'challenges', href: '#challenges' },
+                    { title: 'wireframes', href: '#wireframes' },
+                    { title: 'tests and validation', href: '#tests' },
+                    { title: 'results', href: '#results' },
+                    { title: 'contact', href: '#contact' },
+                ]}
+                activeSection={activeSection} />
 
             {/* page content */}
             <Container>
                 <Stack gap={5}>
-                    {/* title */}
-                    <h1>Ades - a user-friendly digital signature platform.</h1>
+                    <div ref={overviewRef} className="d-flex flex-column gap-5">
+                        {/* title */}
+                        <h1>Ades - a user-friendly digital signature platform.</h1>
 
-                    {/* project details */}
-                    <Row data-section id="overview" className="gap-4">
-                        <Col xs={3} className="bg-secondary rounded-5 vertical-rectangle p-4">
-                            <h3 className="display-font">project details</h3>
-                        </Col>
+                        {/* project details */}
+                        <Row id="overview" className="gap-4">
+                            <Col className="rounded-5 shadow-sm parallax">
+                                <ParallaxBanner className="h-100">
+                                    <ParallaxBannerLayer speed={-10}>
+                                        <img src={introductionImg} alt="ADES - Advanced Digital Signature Platform" />
+                                    </ParallaxBannerLayer>
+                                </ParallaxBanner>
+                            </Col>
 
-                        <Col className="bg-secondary rounded-5">
-                        </Col>
-                    </Row>
+                            <Col xs={3} className="bg-secondary rounded-5 p-4">
+                                <div className="w-100 h-100 d-flex flex-column gap-4">
+                                    <h2 className="display-font">project details</h2>
 
-                    {/* introduction and onverview */}
-                    <Row className="gap-4 pt-3">
-                        <Col className="bg-secondary rounded-5 introduction-panel">
-                            <h3 className="display-font introduction-header">overview</h3>
+                                    <span>
+                                        <p className="annotations">Company</p>
+                                        <p>Laboratory of Computer Security (LabSEC - UFSC)</p>
+                                    </span>
 
-                            <div className="d-flex flex-column gap-4">
-                                <p className="subtitle">
-                                    With the advance of information exchange in the digital realm, <b>data protection and security have become an increasing concern when creating interfaces.</b>
-                                </p>
-                                <p>
-                                    However, a system's security requirements often manifest in ways that conflict with user needs. This was the issue that my client, a Computer Security lab, seldom faced, and what motivated them to initiate this project with me.
-                                    They had developed a new technology for digital signing, and wanted to materialize and put it to test through a brand-new <b>digital signature platform.</b>
-                                </p>
-                            </div>
-                        </Col>
+                                    <span>
+                                        <p className="annotations">Timeline</p>
+                                        <p>April - December 2023</p>
+                                    </span>
 
-                        <Col>
-                            <div className="d-flex align-items-center justify-content-center w-100 h-100">
-                                <h2 className="text-center">“We need to develop a web-based, digital signature platform, that is easy to use, even with complex functionatilities.”</h2>
-                            </div>
-                        </Col>
-                    </Row>
+                                    <span>
+                                        <p className="annotations">Role and Activities</p>
+                                        <p>For this project, I handled the full journey of exploration, research, prototyping, testing and documentation. As the only Designer, I wore many hats, helping with requirements and specifications for developers.</p>
+                                    </span>
+                                </div>
+                            </Col>
+                        </Row>
 
-                    <Row>
-                        <Col className="bg-secondary p-4 rounded-5 viewport-panel d-flex flex-column align-items-start justify-content-end">
-                            <Button className="results-button rounded-5 fs-5">
-                                Click here if you want to go straight to the results!
-                            </Button>
-                        </Col>
-                    </Row>
+                        {/* introduction and overview */}
+                        <Row className="gap-4 pt-3">
+                            <Col className="bg-secondary rounded-5 introduction-panel">
+                                <h3 className="display-font introduction-header">overview</h3>
+
+                                <div className="d-flex flex-column gap-4">
+                                    <p className="subtitle">
+                                        With the advance of information exchange in the digital realm, <b>data protection and security have become an increasing concern when creating interfaces.</b>
+                                    </p>
+                                    <p>
+                                        However, a system's security requirements often manifest in ways that conflict with user needs. This was the issue that my client, a Computer Security lab, seldom faced, and what motivated them to initiate this project with me.
+                                        They had developed a new technology for digital signing, and wanted to materialize and put it to test through a brand-new <b>digital signature platform.</b>
+                                    </p>
+                                </div>
+                            </Col>
+
+                            <Col>
+                                <div className="d-flex align-items-center justify-content-center w-100 h-100">
+                                    <h2 className="text-center">“We need to develop a web-based, digital signature platform, that is easy to use, even with complex functionatilities.”</h2>
+                                </div>
+                            </Col>
+                        </Row>
+
+                        <Row>
+                            <Col className="p-0 rounded-5 viewport-panel parallax position-relative shadow-sm">
+                                <ParallaxBanner className="h-100">
+                                    <ParallaxBannerLayer speed={-15}>
+                                        <img src={overviewImg} alt="ADES - Advanced Digital Signature Platform" />
+                                    </ParallaxBannerLayer>
+                                </ParallaxBanner>
+
+                                <Button className="results-button rounded-5 fs-5">
+                                    Click here if you want to go straight to the results!
+                                </Button>
+                            </Col>
+                        </Row>
+                    </div>
 
                     {/* challenges */}
-                    <Row data-section id="challenges" className="py-4 gap-4">
+                    <Row ref={challengesRef} id="challenges" className="py-4 gap-4">
                         <Col xs={3}>
                             <div className="w-100 h-100 d-flex align-items-center">
                                 <h3 className="display-font">discovering the challenges</h3>
@@ -106,13 +163,23 @@ export default function ProjectPage() {
 
                     <div>
                         <Row className="gap-4 mb-4">
-                            <Col className="bg-secondary rounded-5 square">
+                            <Col className="bg-secondary rounded-5 video">
+                                {/* <video autoPlay muted loop>
+                                    <source src={researchVideo1} type="video/mp4" />
+                                </video> */}
                             </Col>
 
-                            <Col className="bg-secondary rounded-5 square">
+                            <Col className="bg-secondary rounded-5 video">
+                                {/* <video autoPlay muted loop>
+                                    <source src={researchVideo2} type="video/mp4" />
+                                </video> */}
                             </Col>
 
-                            <Col className="bg-secondary rounded-5 square">
+                            <Col className="bg-secondary rounded-5 p-5">
+                                <div className="w-100 h-100 d-flex flex-column align-items center justify-content-center gap-4">
+                                    <p>After analyzing more than 8 similar products and over 200 answers from potential users, it was possible to define the most important aspects and functionalities for the projects MVP.</p>
+                                    <p>This research was also beneficial for the client and their development team, and was presented to them as one of the project’s deliverables.</p>
+                                </div>
                             </Col>
                         </Row>
 
@@ -123,7 +190,7 @@ export default function ProjectPage() {
                     </div>
 
                     {/* wireframes */}
-                    <Row data-section id="wireframes" className="py-4 gap-4">
+                    <Row ref={wireframesRef} id="wireframes" className="py-4 gap-4">
                         <Col xs={3}>
                             <div className="w-100 h-100 d-flex align-items-center">
                                 <h3 className="display-font">wireframes</h3>
@@ -143,22 +210,37 @@ export default function ProjectPage() {
 
                         <Col>
                             <Row>
-                                <Col className="bg-secondary rounded-5 square mb-4">
+                                <Col className="bg-secondary rounded-5 square mb-4 parallax shadow-sm">
+                                    <ParallaxBanner className="h-100">
+                                        <ParallaxBannerLayer speed={-10}>
+                                            <img src={wireframesImg2} />
+                                        </ParallaxBannerLayer>
+                                    </ParallaxBanner>
                                 </Col>
                             </Row>
 
                             <Row>
-                                <Col className="bg-secondary rounded-5 square">
+                                <Col className="bg-secondary rounded-5 square parallax shadow-sm">
+                                    <ParallaxBanner className="h-100">
+                                        <ParallaxBannerLayer speed={-10}>
+                                            <img src={wireframesImg3} />
+                                        </ParallaxBannerLayer>
+                                    </ParallaxBanner>
                                 </Col>
                             </Row>
                         </Col>
 
-                        <Col className="bg-secondary rounded-5">
+                        <Col xs={5} className="rounded-5 parallax shadow-sm">
+                            <ParallaxBanner className="h-100">
+                                <ParallaxBannerLayer speed={-10}>
+                                    <img src={wireframesImg4} />
+                                </ParallaxBannerLayer>
+                            </ParallaxBanner>
                         </Col>
                     </Row>
 
                     {/* tests and validation */}
-                    <Row data-section id="tests" className="gap-4">
+                    <Row ref={testsRef} id="tests" className="gap-4">
                         <Col>
                             <div className="w-100 h-100 d-flex flex-column gap-4 justify-content-center">
                                 <h3 className="display-font">tests and validation</h3>
@@ -170,15 +252,30 @@ export default function ProjectPage() {
 
                         <Col>
                             <Row className="gap-4">
-                                <Col className="bg-secondary rounded-5 square mb-4">
+                                <Col className="rounded-5 square mb-4 parallax shadow-sm">
+                                    <ParallaxBanner className="h-100">
+                                        <ParallaxBannerLayer speed={-10}>
+                                            <img src={testsImg1} />
+                                        </ParallaxBannerLayer>
+                                    </ParallaxBanner>
                                 </Col>
 
-                                <Col className="bg-secondary rounded-5 square mb-4">
+                                <Col className="rounded-5 square mb-4 parallax shadow-sm">
+                                    <ParallaxBanner className="h-100">
+                                        <ParallaxBannerLayer speed={-10}>
+                                            <img src={testsImg2} />
+                                        </ParallaxBannerLayer>
+                                    </ParallaxBanner>
                                 </Col>
                             </Row>
 
                             <Row>
-                                <Col className="bg-secondary rounded-5 horizontal-rectangle">
+                                <Col className="rounded-5 horizontal-rectangle parallax shadow-sm">
+                                    <ParallaxBanner className="h-100">
+                                        <ParallaxBannerLayer speed={-10}>
+                                            <img src={testsImg3} />
+                                        </ParallaxBannerLayer>
+                                    </ParallaxBanner>
                                 </Col>
                             </Row>
                         </Col>

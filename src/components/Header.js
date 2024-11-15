@@ -29,7 +29,7 @@ export default function Header() {
 
                 <Offcanvas.Body>
                     <Nav className={`bg-body scroll-shadow rounded-5 ${(location.pathname !== '/' && 'back-button') || ''}`}>
-                        <Nav.Link className="d-flex flex-row" href="#home" onClick={handleHomeButton}>
+                        <Nav.Link className="d-flex flex-row" href={(location.pathname === '/' && '#home') || ''} onClick={handleHomeButton}>
                             <Collapse in={backButton} dimension='width'>
                                 <p>&lt; back to&nbsp;</p>
                             </Collapse>
