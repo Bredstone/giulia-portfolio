@@ -1,0 +1,35 @@
+{
+  "files": {
+    "main.css": "/giulia-portfolio/static/css/main.970d292b.css",
+    "main.js": "/giulia-portfolio/static/js/main.0ead44e0.js",
+    "static/js/633.0db642ef.chunk.js": "/giulia-portfolio/static/js/633.0db642ef.chunk.js",
+    "static/media/wireframes.jpg": "/giulia-portfolio/static/media/wireframes.cc770a9ca282ae2edbf5.jpg",
+    "static/media/ufscLogo.svg": "/giulia-portfolio/static/media/ufscLogo.3b68512dc7dfe664b125436449cf6623.svg",
+    "static/media/overview.jpg": "/giulia-portfolio/static/media/overview.e59438a565790151df0b.jpg",
+    "static/media/introduction.jpg": "/giulia-portfolio/static/media/introduction.fdeb320834d47503ed8c.jpg",
+    "static/media/adesThumbnail.jpg": "/giulia-portfolio/static/media/adesThumbnail.bf494361288b0e0457c2.jpg",
+    "static/media/profile.jpeg": "/giulia-portfolio/static/media/profile.09fb98d6dc235491a06b.jpeg",
+    "static/media/tests4.jpg": "/giulia-portfolio/static/media/tests4.d328d5569611f064cf82.jpg",
+    "static/media/about.png": "/giulia-portfolio/static/media/about.82f96c73a291acb7e6e2.png",
+    "static/media/tests5.jpg": "/giulia-portfolio/static/media/tests5.271562c6d0e75f479d93.jpg",
+    "static/media/s4eThumbnail.jpg": "/giulia-portfolio/static/media/s4eThumbnail.c81a2cf364c32b1f771a.jpg",
+    "static/media/mapping.svg": "/giulia-portfolio/static/media/mapping.c12eea7fa8c8c63d7253d4c2c3c01847.svg",
+    "static/media/tests3.jpg": "/giulia-portfolio/static/media/tests3.727b90704597ea80d0f2.jpg",
+    "static/media/tests2.jpg": "/giulia-portfolio/static/media/tests2.272d97afe3fc47ec572d.jpg",
+    "static/media/technovationLogo.svg": "/giulia-portfolio/static/media/technovationLogo.b344b00da96ab04b52abb7120a7d2f6e.svg",
+    "static/media/equipeDigitalLogo.svg": "/giulia-portfolio/static/media/equipeDigitalLogo.443b1cf3e00ef1eb770443c2669ee3e4.svg",
+    "static/media/sidiLogo.svg": "/giulia-portfolio/static/media/sidiLogo.a52cecbffaf54b145ec4613e6c1009d6.svg",
+    "static/media/norusLogo.svg": "/giulia-portfolio/static/media/norusLogo.d2488549992909a470f77d0fde31b525.svg",
+    "static/media/labsecLogo.svg": "/giulia-portfolio/static/media/labsecLogo.871e3d44a052f886bea2023d0596817a.svg",
+    "static/media/agileLogo.svg": "/giulia-portfolio/static/media/agileLogo.1286eb357def7ddcccff2bc0a83b0439.svg",
+    "static/media/figmaLogo.svg": "/giulia-portfolio/static/media/figmaLogo.389c53241fe7ca62a96af25fb457f509.svg",
+    "index.html": "/giulia-portfolio/index.html",
+    "main.970d292b.css.map": "/giulia-portfolio/static/css/main.970d292b.css.map",
+    "main.0ead44e0.js.map": "/giulia-portfolio/static/js/main.0ead44e0.js.map",
+    "633.0db642ef.chunk.js.map": "/giulia-portfolio/static/js/633.0db642ef.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.970d292b.css",
+    "static/js/main.0ead44e0.js"
+  ]
+}
