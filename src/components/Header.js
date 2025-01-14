@@ -13,6 +13,7 @@ export default function Header() {
     const handleHomeButton = () => {
         if (location.pathname !== '/') {
             navigate('/');
+            window.scrollTo(0, 0);
         } 
     }
 

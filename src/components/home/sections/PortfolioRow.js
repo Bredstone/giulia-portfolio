@@ -2,8 +2,8 @@ import { Row, Col } from "react-bootstrap";
 
 import adesThumbnail from "resources/img/home/adesThumbnail.jpg";
 import s4eThumbnail from "resources/img/home/s4eThumbnail.jpg";
-import findiThumbnail from "resources/img/home/findiThumbnail.jpg";
-import sidiThumbnail from "resources/img/home/sidiThumbnail.jpg";
+// import findiThumbnail from "resources/img/home/findiThumbnail.jpg";
+// import sidiThumbnail from "resources/img/home/sidiThumbnail.jpg";
 
 import PortfolioThumbnail from "components/home/Thumbnail";
 
@@ -27,7 +27,7 @@ export default function PortfolioRow() {
                     url={'/labsec'} />
 
                 <Col>
-                    <Row className="gap-4 mb-4">
+                    {/* <Row className="gap-4 mb-4">
                         <PortfolioThumbnail 
                             square
                             backgroundImage={sidiThumbnail}
@@ -45,11 +45,12 @@ export default function PortfolioRow() {
                             year="2022"
                             badges={["Personas", "User Journey", "Prototypes", "Benchmarking"]}
                             url={'/ambev'} />
-                    </Row>
+                    </Row> */}
 
                     <Row>
                         <PortfolioThumbnail 
-                            rectangle 
+                            comingSoon
+                            rectangleBig
                             backgroundImage={s4eThumbnail}
                             title="Suite 4 Energy"
                             subtitle="Norus"

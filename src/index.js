@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom/client';
 
 import App from './App';
 import 'styles/index.scss';
+import "yet-another-react-lightbox/styles.css";
+import "yet-another-react-lightbox/plugins/captions.css";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 

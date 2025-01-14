@@ -1,4 +1,4 @@
-import { Container, Stack } from "react-bootstrap";
+import { Container, Stack, Row } from "react-bootstrap";
 
 import "styles/home/home.scss";
 
@@ -7,6 +7,7 @@ import AboutRow from "components/home/sections/AboutRow";
 import PortfolioRow from "components/home/sections/PortfolioRow";
 import ExperienceRow from "components/home/sections/ExperienceRow";
 import TestimonialsRow from "components/home/sections/TestimonialsRow";
+import Footer from "components/Footer";
 
 export default function HomePage() {
     return (
@@ -17,6 +18,9 @@ export default function HomePage() {
                 <PortfolioRow />
                 <ExperienceRow />
                 <TestimonialsRow />
+                <Row>
+                    <Footer />
+                </Row>
             </Stack>
         </Container>
     );

@@ -46,3 +46,35 @@
         }
     }
 }
+
+.nda-locked {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    color: white;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.6);
+    line-height: 1.2;
+    cursor: default;
+    opacity: 0;
+
+    transition: opacity 0.3s ease;
+
+    &:hover {
+        opacity: 1;
+    }
+
+    img {
+        height: 4rem !important;
+    }
+
+    a {
+        color: white;
+    }
+}

@@ -97,9 +97,38 @@ mark {
     }
 }
 
+.highlightable-inverted {
+    background-image: linear-gradient(to right, white 50%, $primary 50%),
+                      linear-gradient(to right, $primary 50%, white 50%);
+    background-size: 200% 100%; 
+    background-position: 0 0;
+    background-color: transparent !important;
+    -webkit-background-clip: text, border-box;
+    background-clip: text, border-box;
+
+    color: transparent;
+    text-decoration-color: white;
+    
+    padding: .1rem 0.1875em;
+    margin: -.1rem -0.1875em;
+    
+    transition: background-position .7s ease; 
+
+    &:hover {
+        background-position: -100% 0;
+    }
+}
+
 .display-font {
     font-family: 'IBM Plex Serif';
     letter-spacing: -0.2rem;
+    font-style: italic;
+    font-weight: 400;
+}
+
+.display-text {
+    font-family: 'IBM Plex Serif';
+    letter-spacing: -0.05rem;
     font-style: italic;
     font-weight: 400;
 }
@@ -128,6 +157,10 @@ mark {
     aspect-ratio: 1 / 1 !important;
 }
 
+.horizontal-rectangle-big {
+    aspect-ratio: 3 / 2 !important;
+}
+
 .horizontal-rectangle {
     aspect-ratio: 2 / 1 !important;
 }
@@ -140,6 +173,6 @@ mark {
     aspect-ratio: 1 / 2 !important;
 }
 
-.vertical-dense {
+.vertical-rectangle-dense {
     aspect-ratio: 1 / 4 !important;
 }
