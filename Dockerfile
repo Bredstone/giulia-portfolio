@@ -1,23 +1,16 @@
-# Use Node.js as the base image
-FROM node:18.15.0-alpine
-
-# Set the working directory in the container
+# Specify the base image
+FROM node:alpine
+# Set the working directory
 WORKDIR /app
-
-# Copy package.json and yarn.lock to the container
-COPY package.json yarn.lock ./
-
-# Install dependencies
-RUN yarn install --frozen-lockfile
-
-# Install dependencies
-RUN yarn install
-
-# Copy the app's source code to the container
+# Copy the package.json and package-lock.json files
+COPY package*.json ./
+# Install the dependencies
+RUN npm install
+# Copy the app files
 COPY . .
-
-# Build the React app
-RUN yarn build
-
-# Serve the build
-CMD ["npx", "serve", "-s", "build"]
+# Build the app
+RUN npm run build
+# Expose the port
+EXPOSE 3000
+# Run the app
+CMD ["npm", "start"]
